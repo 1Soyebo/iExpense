@@ -17,11 +17,23 @@ struct ContentView: View {
     @ObservedObject var user = User()
     
     var body: some View {
-        VStack {
-            Text("Your name is \(user.firstName) \(user.lastName).")
-            TextField("First name", text: $user.firstName)
-            TextField("Last name", text: $user.lastName)
+        NavigationView{
+            Form {
+                Text("Your name is \(user.firstName) \(user.lastName).")
+                TextField("First name", text: $user.firstName)
+                TextField("Last name", text: $user.lastName)
+                    
+            }
+            .navigationTitle("Well")
         }
+        
+    }
+}
+
+
+struct SecondView: View{
+    var body: some View {
+            Text("Second View")
     }
 }
 
