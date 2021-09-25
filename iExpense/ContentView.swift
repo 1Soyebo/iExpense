@@ -13,27 +13,26 @@ class User: ObservableObject {
 }
 
 struct ContentView: View {
-    
+    @State private var showingSheet = false
+
     @ObservedObject var user = User()
     
     var body: some View {
-        NavigationView{
-            Form {
-                Text("Your name is \(user.firstName) \(user.lastName).")
-                TextField("First name", text: $user.firstName)
-                TextField("Last name", text: $user.lastName)
-                    
-            }
-            .navigationTitle("Well")
+        Button("Show Sheet") {
+            self.showingSheet.toggle()
         }
-        
+        .sheet(isPresented: $showingSheet) {
+            SecondView(name: "@twostraws")
+        }
     }
 }
 
 
 struct SecondView: View{
+    var name: String
+
     var body: some View {
-            Text("Second View")
+        Text("Hello, \(name)!")
     }
 }
 
