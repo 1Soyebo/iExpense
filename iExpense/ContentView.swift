@@ -7,25 +7,10 @@
 
 import SwiftUI
 
-struct User: Codable {
-    var firstName:String
-    var lastName:String
-}
-
-struct ExpenseItem:Identifiable {
-    let id = UUID()
-    let name: String
-    let type: String
-    let amount: Int
-}
-
-class Expenses: ObservableObject {
-    @Published var items = [ExpenseItem]()
-}
-
 struct ContentView: View {
     @ObservedObject var expenses = Expenses()
-    
+    @State private var showingAddExpense = false
+
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
     }
@@ -34,21 +19,34 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(expenses.items) { item in
-                    Text(item.name)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(item.name)
+                                .font(.headline)
+                            Text(item.type)
+                        }
+
+                        Spacer()
+                        Text("$\(item.amount)")
+                    }
                 }
                 .onDelete(perform: removeItems)
             }
             
+            .sheet(isPresented: $showingAddExpense) {
+                AddView(expenses: self.expenses)
+            }
             .navigationBarTitle("iExpense")
             .navigationBarItems(trailing:
                 Button(action: {
-                    let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
-                    self.expenses.items.append(expense)
+                    self.showingAddExpense = true
                 }) {
                     Image(systemName: "plus")
                 }
             )
+            
         }
+        
     }
 
     
