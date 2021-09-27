@@ -13,17 +13,32 @@ class User: ObservableObject {
 }
 
 struct ContentView: View {
-    @State private var showingSheet = false
-
-    @ObservedObject var user = User()
+    @State private var numbers = [Int]()
+    @State private var currentNumber = 1
     
+    func removeRows(at offsets: IndexSet) {
+        numbers.remove(atOffsets: offsets)
+    }
+
     var body: some View {
-        Button("Show Sheet") {
-            self.showingSheet.toggle()
+        NavigationView{
+            VStack {
+                List {
+                    ForEach(numbers, id: \.self) {
+                        Text("\($0)")
+                    }
+                    .onDelete(perform: removeRows)
+
+                }
+
+                Button("Add Number") {
+                    self.numbers.append(self.currentNumber)
+                    self.currentNumber += 1
+                }
+            }
+            .navigationBarItems(leading: EditButton())
         }
-        .sheet(isPresented: $showingSheet) {
-            SecondView(name: "@twostraws")
-        }
+
     }
 }
 
