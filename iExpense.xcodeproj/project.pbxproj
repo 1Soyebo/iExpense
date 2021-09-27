@@ -13,6 +13,7 @@
 		2B8DA0E326A9F14D008DFEF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DA0E226A9F14D008DFEF2 /* Assets.xcassets */; };
 		2B8DA0E626A9F14D008DFEF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DA0E526A9F14D008DFEF2 /* Preview Assets.xcassets */; };
 		2B8DA0E926A9F14D008DFEF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DA0E726A9F14D008DFEF2 /* LaunchScreen.storyboard */; };
+		2BD3EF0E270156840067A83F /* LearnDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD3EF0D270156840067A83F /* LearnDelete.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2B8DA0E526A9F14D008DFEF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2B8DA0E826A9F14D008DFEF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B8DA0EA26A9F14D008DFEF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BD3EF0D270156840067A83F /* LearnDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnDelete.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				2B8DA0E726A9F14D008DFEF2 /* LaunchScreen.storyboard */,
 				2B8DA0EA26A9F14D008DFEF2 /* Info.plist */,
 				2B8DA0E426A9F14D008DFEF2 /* Preview Content */,
+				2BD3EF0D270156840067A83F /* LearnDelete.swift */,
 			);
 			path = iExpense;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B8DA0DD26A9F149008DFEF2 /* AppDelegate.swift in Sources */,
+				2BD3EF0E270156840067A83F /* LearnDelete.swift in Sources */,
 				2B8DA0DF26A9F149008DFEF2 /* SceneDelegate.swift in Sources */,
 				2B8DA0E126A9F149008DFEF2 /* ContentView.swift in Sources */,
 			);
